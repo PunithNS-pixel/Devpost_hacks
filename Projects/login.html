@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MediMate - Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            width: 380px;
+            max-width: 90vw;
+            padding: 40px 30px 35px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #6a1b9a;
+            font-weight: 600;
+        }
+        .tab-switch {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .tab-switch button {
+            background: none;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0 16px;
+            padding-bottom: 4px;
+            color: #9b59b6;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+        .tab-switch button.active {
+            border-color: #6a1b9a;
+            color: #6a1b9a;
+        }
+        form {
+            display: none;
+            flex-direction: column;
+        }
+        form.active {
+            display: flex;
+        }
+        label {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 6px;
+            margin-top: 14px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 12px 14px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: 1.7px solid #ccc;
+            transition: border-color 0.25s ease;
+            outline: none;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #6a1b9a;
+        }
+        button.submit-btn {
+            margin-top: 28px;
+            background: #6a1b9a;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button.submit-btn:hover {
+            background: #8e24aa;
+        }
+        .form-footer {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .form-footer a {
+            color: #6a1b9a;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="container" role="main" aria-labelledby="main-title">
+    <h2 id="main-title">Welcome to MediMate</h2>
+    <nav class="tab-switch" role="tablist" aria-label="Sign In and Sign Up Forms Tabs">
+        <button id="signin-tab" role="tab" aria-selected="true" aria-controls="signin-form" tabindex="0" class="active">Sign In</button>
+        <button id="signup-tab" role="tab" aria-selected="false" aria-controls="signup-form" tabindex="-1">Sign Up</button>
+    </nav>
+    <form id="signin-form" class="active" role="tabpanel" aria-labelledby="signin-tab" novalidate>
+        <label for="signin-email">Email</label>
+        <input type="email" id="signin-email" name="signin-email" placeholder="you@example.com" required autocomplete="email" />
+        <div id="signin-email-error" class="error-message" aria-live="polite"></div>
+
+        <label for="signin-password">Password</label>
+        <input type="password" id="signin-password" name="signin-password" placeholder="••••••••" required autocomplete="current-password" />
+        <div id="signin-password-error" class="error-message" aria-live="polite"></div>
+
+        <a href="Second_page.html" style="border: px; border-radius: px; margin: 10px; display: flex; /* align-items: center; */ /* align-content: center; */ /* justify-items: center; */ justify-content: center; background-color: purple; color: white; text-decoration: none; padding-top: 16px; padding-bottom: 16px; border-radius: 12px;">Sign In</a>        <p class="form-footer">Don't have an account?
+            <a href="#" id="to-signup-link" tabindex="0">Sign Up</a>
+        </p>
+    </form>
+
+    <form id="signup-form" role="tabpanel" aria-labelledby="signup-tab" novalidate>
+        <label for="signup-username">Username</label>
+        <input type="text" id="signup-username" name="signup-username" placeholder="Your Name" required autocomplete="name" />
+        <div id="signup-username-error" class="error-message" aria-live="polite"></div>
+
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" name="signup-email" placeholder="you@example.com" required autocomplete="email" />
+        <div id="signup-email-error" class="error-message" aria-live="polite"></div>
+
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" name="signup-password" placeholder="Create a password" required autocomplete="new-password" />
+        <div id="signup-password-error" class="error-message" aria-live="polite"></div>
+
+        <label for="signup-confirm-password">Confirm Password</label>
+        <input type="password" id="signup-confirm-password" name="signup-confirm-password" placeholder="Confirm password" required autocomplete="new-password" />
+        <div id="signup-confirm-password-error" class="error-message" aria-live="polite"></div>
+
+        <button type="submit" class="submit-btn" aria-label="Sign Up for MediMate">Sign Up</button>
+        <p class="form-footer">Already have an account?
+            <a href="#" id="to-signin-link" tabindex="0">Sign In</a>
+        </p>
+    </form>
+</div>
+
+<script>
+    (function() {
+        const signinTab = document.getElementById('signin-tab');
+        const signupTab = document.getElementById('signup-tab');
+        const signinForm = document.getElementById('signin-form');
+        const signupForm = document.getElementById('signup-form');
+
+        function switchToSignIn() {
+            signinTab.classList.add('active');
+            signupTab.classList.remove('active');
+            signinTab.setAttribute('aria-selected', 'true');
+            signupTab.setAttribute('aria-selected', 'false');
+            signinTab.setAttribute('tabindex', '0');
+            signupTab.setAttribute('tabindex', '-1');
+            signinForm.classList.add('active');
+            signupForm.classList.remove('active');
+            clearErrors();
+        }
+
+        function switchToSignUp() {
+            signupTab.classList.add('active');
+            signinTab.classList.remove('active');
+            signupTab.setAttribute('aria-selected', 'true');
+            signinTab.setAttribute('aria-selected', 'false');
+            signupTab.setAttribute('tabindex', '0');
+            signinTab.setAttribute('tabindex', '-1');
+            signupForm.classList.add('active');
+            signinForm.classList.remove('active');
+            clearErrors();
+        }
+
+        signinTab.addEventListener('click', e => {
+            e.preventDefault();
+            switchToSignIn();
+        });
+        signupTab.addEventListener('click', e => {
+            e.preventDefault();
+            switchToSignUp();
+        });
+
+        document.getElementById('to-signup-link').addEventListener('click', e => {
+            e.preventDefault();
+            switchToSignUp();
+            signupForm.querySelector('input').focus();
+        });
+        document.getElementById('to-signin-link').addEventListener('click', e => {
+            e.preventDefault();
+            switchToSignIn();
+            signinForm.querySelector('input').focus();
+        });
+
+        function clearErrors() {
+            const errors = document.querySelectorAll('.error-message');
+            errors.forEach(error => error.textContent = '');
+        }
+
+        // Simple validations
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function validateSignIn() {
+            clearErrors();
+            let valid = true;
+            const email = document.getElementById('signin-email').value.trim();
+            const password = document.getElementById('signin-password').value.trim();
+
+            if (!email) {
+                document.getElementById('signin-email-error').textContent = 'Email is required.';
+                valid = false;
+            } else if (!validateEmail(email)) {
+                document.getElementById('signin-email-error').textContent = 'Enter a valid email.';
+                valid = false;
+            }
+            if (!password) {
+                document.getElementById('signin-password-error').textContent = 'Password is required.';
+                valid = false;
+            }
+            return valid;
+        }
+
+        function validateSignUp() {
+            clearErrors();
+            let valid = true;
+            const username = document.getElementById('signup-username').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+            if (!username) {
+                document.getElementById('signup-username-error').textContent = 'Username is required.';
+                valid = false;
+            }
+            if (!email) {
+                document.getElementById('signup-email-error').textContent = 'Email is required.';
+                valid = false;
+            } else if (!validateEmail(email)) {
+                document.getElementById('signup-email-error').textContent = 'Enter a valid email.';
+                valid = false;
+            }
+            if (!password) {
+                document.getElementById('signup-password-error').textContent = 'Password is required.';
+                valid = false;
+            } else if (password.length < 6) {
+                document.getElementById('signup-password-error').textContent = 'Password must be at least 6 characters.';
+                valid = false;
+            }
+            if (!confirmPassword) {
+                document.getElementById('signup-confirm-password-error').textContent = 'Please confirm your password.';
+                valid = false;
+            } else if (password !== confirmPassword) {
+                document.getElementById('signup-confirm-password-error').textContent = 'Passwords do not match.';
+                valid = false;
+            }
+            return valid;
+        }
+
+        signinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateSignIn()) {
+                alert('Sign In successful (simulation).');
+                signinForm.reset();
+            }
+        });
+
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateSignUp()) {
+                alert('Sign Up successful (simulation). Please sign in.');
+                signupForm.reset();
+                switchToSignIn();
+            }
+        });
+
+    })();
+</script>
+</body>
+</html>
+
